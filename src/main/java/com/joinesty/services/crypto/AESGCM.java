@@ -20,7 +20,6 @@ public class AESGCM {
 
 
     public byte[] generateIV() {
-
         final SecureRandom randomGen = new SecureRandom();
         byte[] bytes = new byte[IV_BIT_LENGTH / 8];
         randomGen.nextBytes(bytes);
