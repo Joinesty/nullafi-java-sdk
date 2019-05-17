@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class DriversLicenseRequest {
 
-    private String driversLicense;
+    private String driverslicense;
 
     private String iv;
 

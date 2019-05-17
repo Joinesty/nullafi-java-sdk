@@ -38,7 +38,7 @@ public class DateOfBirthManager {
             AESDTO cipher = this.vault.encrypt(dateOfBirth);
 
             DateOfBirthRequest request = new DateOfBirthRequest();
-            request.setDateOfBirth(cipher.getEncryptedData());
+            request.setDateofbirth(cipher.getEncryptedData());
             request.setAuthTag(cipher.getAuthenticationTag());
             request.setIv(cipher.getInitializationVector());
             request.setTags(tags);
@@ -71,8 +71,8 @@ public class DateOfBirthManager {
                     .asObject(DateOfBirthResponse.class);
 
             DateOfBirthResponse responseBody = response.getBody();
-            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getDateOfBirth());
-            responseBody.setDateOfBirth(decrypted);
+            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getDateofbirth());
+            responseBody.setDateofbirth(decrypted);
 
             return responseBody;
 

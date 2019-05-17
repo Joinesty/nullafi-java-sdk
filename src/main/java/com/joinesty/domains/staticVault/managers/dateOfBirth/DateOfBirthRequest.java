@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class DateOfBirthRequest {
 
-    private String dateOfBirth;
+    private String dateofbirth;
 
     private String iv;
 

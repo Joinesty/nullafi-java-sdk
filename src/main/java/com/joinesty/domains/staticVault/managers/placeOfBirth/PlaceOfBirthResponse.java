@@ -10,9 +10,9 @@ public class PlaceOfBirthResponse {
 
     private String id;
 
-    private String placeOfBirthToken;
+    private String placeofbirthToken;
 
-    private String placeOfBirth;
+    private String placeofbirth;
 
     private String iv;
 

@@ -38,7 +38,7 @@ public class PlaceOfBirthManager {
             AESDTO cipher = this.vault.encrypt(placeOfBirth);
 
             PlaceOfBirthRequest request = new PlaceOfBirthRequest();
-            request.setPlaceOfBirth(cipher.getEncryptedData());
+            request.setPlaceofbirth(cipher.getEncryptedData());
             request.setAuthTag(cipher.getAuthenticationTag());
             request.setIv(cipher.getInitializationVector());
             request.setTags(tags);
@@ -71,8 +71,8 @@ public class PlaceOfBirthManager {
                     .asObject(PlaceOfBirthResponse.class);
 
             PlaceOfBirthResponse responseBody = response.getBody();
-            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getPlaceOfBirth());
-            responseBody.setPlaceOfBirth(decrypted);
+            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getPlaceofbirth());
+            responseBody.setPlaceofbirth(decrypted);
 
             return responseBody;
 

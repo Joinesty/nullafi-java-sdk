@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class VehicleRegistrationRequest {
 
-    private String vehicleRegistration;
+    private String vehicleregistration;
 
     private String iv;
 

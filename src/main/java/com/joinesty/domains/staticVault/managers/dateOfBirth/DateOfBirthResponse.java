@@ -10,9 +10,9 @@ public class DateOfBirthResponse {
 
     private String id;
 
-    private String dateOfBirthToken;
+    private String dateofbirthToken;
 
-    private String dateOfBirth;
+    private String dateofbirth;
 
     private String iv;
 

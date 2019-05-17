@@ -4,3 +4,4 @@ target/classes
 target/generated-sources
 target/maven-archiver
 target/maven-status
+src/main/java/example/Example.java

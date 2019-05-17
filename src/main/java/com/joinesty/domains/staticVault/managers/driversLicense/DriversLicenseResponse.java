@@ -10,9 +10,9 @@ public class DriversLicenseResponse {
 
     private String id;
 
-    private String driversLicenseToken;
+    private String driverslicenseToken;
 
-    private String driversLicense;
+    private String driverslicense;
 
     private String iv;
 

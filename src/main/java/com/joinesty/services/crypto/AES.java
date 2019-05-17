@@ -9,13 +9,12 @@ import javax.crypto.SecretKey;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.engines.AESEngine;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 public class AES {
 
     public static KeyGenerator createKeyGenerator() {
         try {
-            return KeyGenerator.getInstance("AES", new BouncyCastleProvider());
+            return KeyGenerator.getInstance("AES");
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e.getMessage(), e);
         }

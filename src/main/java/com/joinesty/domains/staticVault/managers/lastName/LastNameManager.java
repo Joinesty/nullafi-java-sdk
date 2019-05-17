@@ -38,7 +38,7 @@ public class LastNameManager {
             AESDTO cipher = this.vault.encrypt(lastName);
 
             LastNameRequest request = new LastNameRequest();
-            request.setLastName(cipher.getEncryptedData());
+            request.setLastname(cipher.getEncryptedData());
             request.setAuthTag(cipher.getAuthenticationTag());
             request.setIv(cipher.getInitializationVector());
             request.setTags(tags);
@@ -71,8 +71,8 @@ public class LastNameManager {
                     .asObject(LastNameResponse.class);
 
             LastNameResponse responseBody = response.getBody();
-            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getLastName());
-            responseBody.setLastName(decrypted);
+            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getLastname());
+            responseBody.setLastname(decrypted);
 
             return responseBody;
 

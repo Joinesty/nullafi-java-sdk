@@ -10,9 +10,9 @@ public class VehicleRegistrationResponse {
 
     private String id;
 
-    private String vehicleRegistrationToken;
+    private String vehicleregistrationToken;
 
-    private String vehicleRegistration;
+    private String vehicleregistration;
 
     private String iv;
 

@@ -38,7 +38,7 @@ public class VehicleRegistrationManager {
             AESDTO cipher = this.vault.encrypt(vehicleRegistration);
 
             VehicleRegistrationRequest request = new VehicleRegistrationRequest();
-            request.setVehicleRegistration(cipher.getEncryptedData());
+            request.setVehicleregistration(cipher.getEncryptedData());
             request.setAuthTag(cipher.getAuthenticationTag());
             request.setIv(cipher.getInitializationVector());
             request.setTags(tags);
@@ -71,8 +71,8 @@ public class VehicleRegistrationManager {
                     .asObject(VehicleRegistrationResponse.class);
 
             VehicleRegistrationResponse responseBody = response.getBody();
-            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getVehicleRegistration());
-            responseBody.setVehicleRegistration(decrypted);
+            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getVehicleregistration());
+            responseBody.setVehicleregistration(decrypted);
 
             return responseBody;
 

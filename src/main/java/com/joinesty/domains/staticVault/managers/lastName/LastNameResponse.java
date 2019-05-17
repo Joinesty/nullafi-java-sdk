@@ -10,9 +10,9 @@ public class LastNameResponse {
 
     private String id;
 
-    private String lastNameToken;
+    private String lastnameToken;
 
-    private String lastName;
+    private String lastname;
 
     private String iv;
 

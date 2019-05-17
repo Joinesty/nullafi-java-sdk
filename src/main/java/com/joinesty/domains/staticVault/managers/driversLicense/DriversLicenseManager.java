@@ -38,7 +38,7 @@ public class DriversLicenseManager {
             AESDTO cipher = this.vault.encrypt(driversLicense);
 
             DriversLicenseRequest request = new DriversLicenseRequest();
-            request.setDriversLicense(cipher.getEncryptedData());
+            request.setDriverslicense(cipher.getEncryptedData());
             request.setAuthTag(cipher.getAuthenticationTag());
             request.setIv(cipher.getInitializationVector());
             request.setTags(tags);
@@ -71,8 +71,8 @@ public class DriversLicenseManager {
                     .asObject(DriversLicenseResponse.class);
 
             DriversLicenseResponse responseBody = response.getBody();
-            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getDriversLicense());
-            responseBody.setDriversLicense(decrypted);
+            String decrypted = this.vault.decrypt(responseBody.getIv(), responseBody.getAuthTag(), responseBody.getDriverslicense());
+            responseBody.setDriverslicense(decrypted);
 
             return responseBody;
 
