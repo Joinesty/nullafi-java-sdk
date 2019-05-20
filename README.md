@@ -9,6 +9,10 @@ A Node.js interface to the [Nullafi API](http://enterprise-api.nullafi.com/docs)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+Instalation
+------------
+- Import the JAR File (nullafi-java-sdk-1.0-SNAPSHOT-jar-with-dependencies.jar) to your Application
+
 Pre Requsites
 ------------
 
