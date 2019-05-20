@@ -21,10 +21,8 @@ Installation
 Getting Started
 ---------------
 
-To get started with the SDK, get a API Key from the Configuration page
-of your app in the [Settings Page - API Key][settings-api-key].
-
-You can use this token to make calls for your own Nullafi account.
+- To get started with the SDK, get a API Key from the Configuration page
+of your app in the [Settings Page - API Key][settings-api-key]. You can use this token to make calls for your own Nullafi account.
 
 ```java
 import com.joinesty.Client;
