@@ -9,7 +9,6 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import lombok.Getter;
 import org.bouncycastle.util.encoders.Base64;
-
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
@@ -54,7 +53,7 @@ public class CommunicationVault extends API {
     }
 
     public String getMasterKey() {
-        return new String(Base64.encode(this.secretKey.getEncoded()));
+        return new String(this.secretKey.getEncoded());
     }
 
     public AESDTO encrypt(String value) {
@@ -85,9 +84,9 @@ public class CommunicationVault extends API {
     public static CommunicationVault createCommunicationVault(Client client, String name, String[] tags) {
         try {
             final Security security = new Security();
-            final KeyPair rsaKey = security.getRsa().rsaGenerateEphemeralKeypairs();
+            final KeyPair rsaKey = security.getRsa().generateKey();
 
-            final String publicKey = new String(Base64.encode(rsaKey.getPublic().getEncoded()));
+            final String publicKey = security.getRsa().toPEM(rsaKey.getPublic().getEncoded());
 
             CommunicationVaultRequest requestBody = new CommunicationVaultRequest();
             requestBody.setName(name);
@@ -101,18 +100,20 @@ public class CommunicationVault extends API {
 
             CommunicationVaultResponse responseBody = response.getBody();
 
-            byte[] byteIv = Base64.decode(responseBody.getIv().getBytes());
-            byte[] byteAuthTag = Base64.decode(responseBody.getAuthTag().getBytes());
-            byte[] byteSessionKey = Base64.decode(responseBody.getSessionKey().getBytes());
-            byte[] byteMasterKey = Base64.decode(responseBody.getMasterKey().getBytes());
+            byte[] byteIv = Base64.decode(responseBody.getIv());
+            byte[] byteAuthTag = Base64.decode(responseBody.getAuthTag());
+            byte[] byteSessionKey = Base64.decode(responseBody.getSessionKey());
+            byte[] byteMasterKey = Base64.decode(responseBody.getMasterKey());
 
-            byte[] aesEncryptedMasterKey = security.getRsa().privateDecrypt(rsaKey.getPrivate(), byteSessionKey);
-            SecretKey secretKey = new SecretKeySpec(aesEncryptedMasterKey, 0, aesEncryptedMasterKey.length, "AES");
+            String encryptedMasterKey = new String(security.getRsa().decrypt(rsaKey.getPrivate(), byteSessionKey));
+            encryptedMasterKey = encryptedMasterKey.replaceAll("\"", "");
+            byte[] aesEncryptedMasterKey = Base64.decode(encryptedMasterKey);
+            SecretKey skAesEncryptedMasterKey = new SecretKeySpec(aesEncryptedMasterKey, 0, aesEncryptedMasterKey.length, "AES");
 
-            byte[] decrypted = security.getAes().decrypt(secretKey, byteIv, byteAuthTag, byteMasterKey);
-            SecretKey masterKey = new SecretKeySpec(decrypted, 0, decrypted.length, "AES");
+            byte[] masterKey = security.getAes().decrypt(skAesEncryptedMasterKey, byteIv, byteAuthTag, byteMasterKey);
+            SecretKey skMasterKey = new SecretKeySpec(masterKey, 0, masterKey.length, "AES");
 
-            return new CommunicationVault(client, responseBody.getId(), responseBody.getName(), masterKey);
+            return new CommunicationVault(client, responseBody.getId(), responseBody.getName(), skMasterKey);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
