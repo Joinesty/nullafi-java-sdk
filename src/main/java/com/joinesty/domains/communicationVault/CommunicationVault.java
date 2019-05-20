@@ -135,7 +135,7 @@ public class CommunicationVault extends API {
                     .asObject(CommunicationVaultResponse.class);
 
             CommunicationVaultResponse responseBody = response.getBody();
-            byte[] decodedKey = Base64.decode(masterKey);
+            byte[] decodedKey = masterKey.getBytes();
             SecretKey secretKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
 
             return new CommunicationVault(
