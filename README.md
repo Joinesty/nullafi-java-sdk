@@ -15,7 +15,8 @@ Pre Requsites
 
 Instalation
 ------------
-- Import the JAR Package File (`lib/nullafi-java-sdk-1.0-SNAPSHOT.jar`) to your Application
+- Import the JAR Package File to your Application
+`target/nullafi-java-sdk-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
 
 Getting Started
