@@ -1,7 +1,7 @@
 Nullafi Java SDK
 ===============
 
-A Node.js interface to the [Nullafi API](http://enterprise-api.nullafi.com/docs).
+A Java interface to the [Nullafi API](http://enterprise-api.nullafi.com/docs).
 
 - [Pre Requsites](#pre-requisites)
 - [Installation](#installation)
