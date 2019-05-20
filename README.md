@@ -11,7 +11,7 @@ A Node.js interface to the [Nullafi API](http://enterprise-api.nullafi.com/docs)
 
 Instalation
 ------------
-- Import the JAR Package File (lib/nullafi-java-sdk-1.0-SNAPSHOT-jar-with-dependencies.jar) to your Application
+- Import the JAR Package File (`lib/nullafi-java-sdk-1.0-SNAPSHOT-jar-with-dependencies.jar`) to your Application
 
 Pre Requsites
 ------------
