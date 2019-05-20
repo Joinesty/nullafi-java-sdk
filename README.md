@@ -12,7 +12,7 @@ A Node.js interface to the [Nullafi API](http://enterprise-api.nullafi.com/docs)
 Pre Requsites
 ------------
 
-- Java SE Development Kit 8
+- Java SE Development Kit >= 8 
 
 Getting Started
 ---------------
