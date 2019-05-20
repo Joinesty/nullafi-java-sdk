@@ -9,14 +9,14 @@ A Node.js interface to the [Nullafi API](http://enterprise-api.nullafi.com/docs)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+Pre Requsites
+------------
+- Java SE Development Kit >= 8 
+
 Instalation
 ------------
 - Import the JAR Package File (`lib/nullafi-java-sdk-1.0-SNAPSHOT.jar`) to your Application
 
-Pre Requsites
-------------
-
-- Java SE Development Kit >= 8 
 
 Getting Started
 ---------------
