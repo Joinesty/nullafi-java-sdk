@@ -3,7 +3,7 @@ Nullafi Java SDK
 
 A Java interface to the [Nullafi API](http://enterprise-api.nullafi.com/docs).
 
-- [Pre Requsites](#pre-requisites)
+- [Pre Requisites](#pre-requisites)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Copyright and License](#copyright-and-license)
