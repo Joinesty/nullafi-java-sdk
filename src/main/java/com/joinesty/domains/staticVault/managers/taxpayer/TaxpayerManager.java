@@ -26,7 +26,7 @@ public class TaxpayerManager {
     }
 
     /**
-     * Create a new Taxpayer string to be tokenized for a specific static vault
+     * Create a new Taxpayer string to be aliased for a specific static vault
      *
      * @param taxpayer
      * @param tags
@@ -58,7 +58,7 @@ public class TaxpayerManager {
     }
 
     /**
-     * Retrieve the Taxpayer string token from a static vault
+     * Retrieve the Taxpayer string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class TaxpayerManager {
     }
 
     /**
-     * Delete the TaxpayerManager token from static vault
+     * Delete the TaxpayerManager alias from static vault
      *
      * @param id
      *

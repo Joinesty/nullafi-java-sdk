@@ -26,7 +26,7 @@ public class SsnManager {
     }
 
     /**
-     * Create a new Ssn string to be tokenized for a specific static vault
+     * Create a new Ssn string to be aliased for a specific static vault
      *
      * @param ssn
      * @param tags
@@ -58,7 +58,7 @@ public class SsnManager {
     }
 
     /**
-     * Retrieve the Ssn string token from a static vault
+     * Retrieve the Ssn string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class SsnManager {
     }
 
     /**
-     * Delete the SsnManager token from static vault
+     * Delete the SsnManager alias from static vault
      *
      * @param id
      *

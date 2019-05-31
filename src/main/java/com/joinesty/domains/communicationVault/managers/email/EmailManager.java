@@ -26,7 +26,7 @@ public class EmailManager {
     }
 
     /**
-     * Create a new Email string to be tokenized for a specific static vault
+     * Create a new Email string to be aliased for a specific static vault
      *
      * @param email
      * @param tags
@@ -58,7 +58,7 @@ public class EmailManager {
     }
 
     /**
-     * Retrieve the Email string token from a communication vault
+     * Retrieve the Email string alias from a communication vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class EmailManager {
     }
 
     /**
-     * Delete the Email token from communication vault
+     * Delete the Email alias from communication vault
      *
      * @param id
      *

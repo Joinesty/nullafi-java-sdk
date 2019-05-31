@@ -26,7 +26,7 @@ public class VehicleRegistrationManager {
     }
 
     /**
-     * Create a new VehicleRegistration string to be tokenized for a specific static vault
+     * Create a new VehicleRegistration string to be aliased for a specific static vault
      *
      * @param vehicleRegistration
      * @param tags
@@ -58,7 +58,7 @@ public class VehicleRegistrationManager {
     }
 
     /**
-     * Retrieve the VehicleRegistration string token from a static vault
+     * Retrieve the VehicleRegistration string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class VehicleRegistrationManager {
     }
 
     /**
-     * Delete the VehicleRegistration token from static vault
+     * Delete the VehicleRegistration alias from static vault
      *
      * @param id
      *

@@ -26,7 +26,7 @@ public class FirstNameManager {
     }
 
     /**
-     * Create a new FirstName string to be tokenized for a specific static vault
+     * Create a new FirstName string to be aliased for a specific static vault
      *
      * @param firstName
      * @param tags
@@ -58,7 +58,7 @@ public class FirstNameManager {
     }
 
     /**
-     * Retrieve the FirstName string token from a static vault
+     * Retrieve the FirstName string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class FirstNameManager {
     }
 
     /**
-     * Delete the FirstName token from static vault
+     * Delete the FirstName alias from static vault
      *
      * @param id
      *

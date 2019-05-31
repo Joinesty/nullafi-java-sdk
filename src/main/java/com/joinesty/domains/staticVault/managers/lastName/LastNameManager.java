@@ -26,7 +26,7 @@ public class LastNameManager {
     }
 
     /**
-     * Create a new LastName string to be tokenized for a specific static vault
+     * Create a new LastName string to be aliased for a specific static vault
      *
      * @param lastName
      * @param tags
@@ -58,7 +58,7 @@ public class LastNameManager {
     }
 
     /**
-     * Retrieve the LastName string token from a static vault
+     * Retrieve the LastName string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class LastNameManager {
     }
 
     /**
-     * Delete the LastName token from static vault
+     * Delete the LastName alias from static vault
      *
      * @param id
      *

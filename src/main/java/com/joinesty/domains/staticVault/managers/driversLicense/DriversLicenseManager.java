@@ -26,7 +26,7 @@ public class DriversLicenseManager {
     }
 
     /**
-     * Create a new DriversLicense string to be tokenized for a specific static vault
+     * Create a new DriversLicense string to be aliased for a specific static vault
      *
      * @param driversLicense
      * @param tags
@@ -58,7 +58,7 @@ public class DriversLicenseManager {
     }
 
     /**
-     * Retrieve the DriversLicense string token from a static vault
+     * Retrieve the DriversLicense string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class DriversLicenseManager {
     }
 
     /**
-     * Delete the DriversLicense token from static vault
+     * Delete the DriversLicense alias from static vault
      *
      * @param id
      *

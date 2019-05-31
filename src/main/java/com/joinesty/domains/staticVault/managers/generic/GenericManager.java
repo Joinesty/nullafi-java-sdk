@@ -26,7 +26,7 @@ public class GenericManager {
     }
 
     /**
-     * Create a new Generic string to be tokenized for a specific static vault
+     * Create a new Generic string to be aliased for a specific static vault
      *
      * @param data
      * @param template
@@ -60,7 +60,7 @@ public class GenericManager {
     }
 
     /**
-     * Retrieve the Generic string token from a static vault
+     * Retrieve the Generic string alias from a static vault
      *
      * @param id
      *
@@ -84,7 +84,7 @@ public class GenericManager {
     }
 
     /**
-     * Delete the Generic token from static vault
+     * Delete the Generic alias from static vault
      *
      * @param id
      *

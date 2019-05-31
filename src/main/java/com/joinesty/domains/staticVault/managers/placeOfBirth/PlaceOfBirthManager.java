@@ -26,7 +26,7 @@ public class PlaceOfBirthManager {
     }
 
     /**
-     * Create a new PlaceOfBirth string to be tokenized for a specific static vault
+     * Create a new PlaceOfBirth string to be aliased for a specific static vault
      *
      * @param placeOfBirth
      * @param tags
@@ -58,7 +58,7 @@ public class PlaceOfBirthManager {
     }
 
     /**
-     * Retrieve the PlaceOfBirth string token from a static vault
+     * Retrieve the PlaceOfBirth string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class PlaceOfBirthManager {
     }
 
     /**
-     * Delete the PlaceOfBirth token from static vault
+     * Delete the PlaceOfBirth alias from static vault
      *
      * @param id
      *

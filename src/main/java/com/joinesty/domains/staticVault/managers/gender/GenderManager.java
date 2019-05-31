@@ -26,7 +26,7 @@ public class GenderManager {
     }
 
     /**
-     * Create a new Gender string to be tokenized for a specific static vault
+     * Create a new Gender string to be aliased for a specific static vault
      *
      * @param gender
      * @param tags
@@ -58,7 +58,7 @@ public class GenderManager {
     }
 
     /**
-     * Retrieve the Gender string token from a static vault
+     * Retrieve the Gender string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class GenderManager {
     }
 
     /**
-     * Delete the GenderManager token from static vault
+     * Delete the GenderManager alias from static vault
      *
      * @param id
      *

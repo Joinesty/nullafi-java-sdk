@@ -26,7 +26,7 @@ public class RaceManager {
     }
 
     /**
-     * Create a new Race string to be tokenized for a specific static vault
+     * Create a new Race string to be aliased for a specific static vault
      *
      * @param race
      * @param tags
@@ -58,7 +58,7 @@ public class RaceManager {
     }
 
     /**
-     * Retrieve the Race string token from a static vault
+     * Retrieve the Race string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class RaceManager {
     }
 
     /**
-     * Delete the RaceManager token from static vault
+     * Delete the RaceManager alias from static vault
      *
      * @param id
      *

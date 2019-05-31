@@ -26,7 +26,7 @@ public class RandomManager {
     }
 
     /**
-     * Create a new Random string to be tokenized for a specific static vault
+     * Create a new Random string to be aliased for a specific static vault
      *
      * @param data
      * @param tags
@@ -58,7 +58,7 @@ public class RandomManager {
     }
 
     /**
-     * Retrieve the Random string token from a static vault
+     * Retrieve the Random string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class RandomManager {
     }
 
     /**
-     * Delete the Random token from static vault
+     * Delete the Random alias from static vault
      *
      * @param id
      *

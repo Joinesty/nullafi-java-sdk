@@ -26,7 +26,7 @@ public class AddressManager {
     }
 
     /**
-     * Create a new Address string to be tokenized for a specific static vault
+     * Create a new Address string to be aliased for a specific static vault
      *
      * @param address
      * @param tags
@@ -58,7 +58,7 @@ public class AddressManager {
     }
 
     /**
-     * Retrieve the Address string token from a static vault
+     * Retrieve the Address string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class AddressManager {
     }
 
     /**
-     * Delete the Address token from static vault
+     * Delete the Address alias from static vault
      *
      * @param id
      *

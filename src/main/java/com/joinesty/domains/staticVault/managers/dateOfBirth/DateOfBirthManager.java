@@ -26,7 +26,7 @@ public class DateOfBirthManager {
     }
 
     /**
-     * Create a new DateOfBirth string to be tokenized for a specific static vault
+     * Create a new DateOfBirth string to be aliased for a specific static vault
      *
      * @param dateOfBirth
      * @param tags
@@ -58,7 +58,7 @@ public class DateOfBirthManager {
     }
 
     /**
-     * Retrieve the DateOfBirth string token from a static vault
+     * Retrieve the DateOfBirth string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class DateOfBirthManager {
     }
 
     /**
-     * Delete the DateOfBirth token from static vault
+     * Delete the DateOfBirth alias from static vault
      *
      * @param id
      *

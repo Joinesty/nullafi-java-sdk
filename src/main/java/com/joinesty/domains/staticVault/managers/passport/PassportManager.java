@@ -26,7 +26,7 @@ public class PassportManager {
     }
 
     /**
-     * Create a new Passport string to be tokenized for a specific static vault
+     * Create a new Passport string to be aliased for a specific static vault
      *
      * @param passport
      * @param tags
@@ -58,7 +58,7 @@ public class PassportManager {
     }
 
     /**
-     * Retrieve the Passport string token from a static vault
+     * Retrieve the Passport string alias from a static vault
      *
      * @param id
      *
@@ -82,7 +82,7 @@ public class PassportManager {
     }
 
     /**
-     * Delete the PassportManager token from static vault
+     * Delete the PassportManager alias from static vault
      *
      * @param id
      *
