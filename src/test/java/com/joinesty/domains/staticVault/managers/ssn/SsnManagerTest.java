@@ -152,7 +152,25 @@ public class SsnManagerTest extends BaseMock {
     tags.add("some-ssn-tag-2");
 
     SsnResponse ssnResponse = this.staticVault.getSsnManager()
-      .create("some-ssn", null, tags);
+      .create("some-ssn", tags);
+
+    assertEquals(ssnResponse.getId(), "some-ssn-id");
+    assertEquals(ssnResponse.getSsnAlias(), "some-ssn-alias");
+    assertEquals(ssnResponse.getTags().get(0), "some-ssn-tag-1");
+    assertEquals(ssnResponse.getTags().get(1), "some-ssn-tag-2");
+    assertNotNull(ssnResponse.getSsn());
+    assertNotNull(ssnResponse.getAuthTag());
+    assertNotNull(ssnResponse.getIv());
+  }
+
+  @Test
+  public void GivenRequestToCreateASsnAliasWithStateAndTags_WhenCreatingAlias_ShouldReturnASsnAlias() throws Exception {
+    List<String> tags = new ArrayList<>();
+    tags.add("some-ssn-tag-1");
+    tags.add("some-ssn-tag-2");
+
+    SsnResponse ssnResponse = this.staticVault.getSsnManager()
+      .create("some-ssn", "some-state", tags);
 
     assertEquals(ssnResponse.getId(), "some-ssn-id");
     assertEquals(ssnResponse.getSsnAlias(), "some-ssn-alias");

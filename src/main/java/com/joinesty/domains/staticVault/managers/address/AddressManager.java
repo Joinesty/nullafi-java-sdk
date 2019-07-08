@@ -6,7 +6,6 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,6 +36,17 @@ public class AddressManager {
    */
   public AddressResponse create(String address) throws Exception {
     return this.create(address, null, null);
+  }
+
+  /**
+   * Create a new Address string to be aliased for a specific static vault
+   *
+   * @param address
+   * @param tags
+   * @return AddressResponse
+   */
+  public AddressResponse create(String address, List<String> tags) throws Exception {
+    return this.create(address, null, tags);
   }
 
   /**

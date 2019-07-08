@@ -6,7 +6,6 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,6 +47,17 @@ public class PlaceOfBirthManager {
    */
   public PlaceOfBirthResponse create(String placeOfBirth, String state) throws Exception {
     return this.create(placeOfBirth, state, null);
+  }
+
+  /**
+   * Create a new PlaceOfBirth string to be aliased for a specific static vault
+   *
+   * @param placeOfBirth
+   * @param tags
+   * @return PlaceOfBirthResponse
+   */
+  public PlaceOfBirthResponse create(String placeOfBirth, List<String> tags) throws Exception {
+    return this.create(placeOfBirth, null, tags);
   }
 
   /**

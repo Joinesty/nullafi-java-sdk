@@ -152,6 +152,24 @@ public class AddressManagerTest extends BaseMock {
     tags.add("some-address-tag-2");
 
     AddressResponse addressResponse = this.staticVault.getAddressManager()
+      .create("some-address", tags);
+
+    assertEquals(addressResponse.getId(), "some-address-id");
+    assertEquals(addressResponse.getAddressAlias(), "some-address-alias");
+    assertEquals(addressResponse.getTags().get(0), "some-address-tag-1");
+    assertEquals(addressResponse.getTags().get(1), "some-address-tag-2");
+    assertNotNull(addressResponse.getAddress());
+    assertNotNull(addressResponse.getAuthTag());
+    assertNotNull(addressResponse.getIv());
+  }
+
+  @Test
+  public void GivenRequestToCreateAAddressAliasWithStateAndTags_WhenCreatingAlias_ShouldReturnAAddressAlias() throws Exception {
+    List<String> tags = new ArrayList<>();
+    tags.add("some-address-tag-1");
+    tags.add("some-address-tag-2");
+
+    AddressResponse addressResponse = this.staticVault.getAddressManager()
       .create("some-address", "some-state", tags);
 
     assertEquals(addressResponse.getId(), "some-address-id");

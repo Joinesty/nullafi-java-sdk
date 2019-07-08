@@ -152,7 +152,25 @@ public class DriversLicenseManagerTest extends BaseMock {
     tags.add("some-driverslicense-tag-2");
 
     DriversLicenseResponse driversLicenseResponse = this.staticVault.getDriversLicenseManager()
-      .create("some-driverslicense", null, tags);
+      .create("some-driverslicense", tags);
+
+    assertEquals(driversLicenseResponse.getId(), "some-driverslicense-id");
+    assertEquals(driversLicenseResponse.getDriverslicenseAlias(), "some-driverslicense-alias");
+    assertEquals(driversLicenseResponse.getTags().get(0), "some-driverslicense-tag-1");
+    assertEquals(driversLicenseResponse.getTags().get(1), "some-driverslicense-tag-2");
+    assertNotNull(driversLicenseResponse.getDriverslicense());
+    assertNotNull(driversLicenseResponse.getAuthTag());
+    assertNotNull(driversLicenseResponse.getIv());
+  }
+
+  @Test
+  public void GivenRequestToCreateADriversLicenseAliasWithStateAndTags_WhenCreatingAlias_ShouldReturnADriversLicenseAlias() throws Exception {
+    List<String> tags = new ArrayList<>();
+    tags.add("some-driverslicense-tag-1");
+    tags.add("some-driverslicense-tag-2");
+
+    DriversLicenseResponse driversLicenseResponse = this.staticVault.getDriversLicenseManager()
+      .create("some-driverslicense", "some-state", tags);
 
     assertEquals(driversLicenseResponse.getId(), "some-driverslicense-id");
     assertEquals(driversLicenseResponse.getDriverslicenseAlias(), "some-driverslicense-alias");

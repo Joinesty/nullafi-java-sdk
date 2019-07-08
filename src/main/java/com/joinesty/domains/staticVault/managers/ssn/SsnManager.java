@@ -6,7 +6,6 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,6 +47,17 @@ public class SsnManager {
    */
   public SsnResponse create(String ssn, String state) throws Exception {
     return this.create(ssn, state, null);
+  }
+
+  /**
+   * Create a new Ssn string to be aliased for a specific static vault
+   *
+   * @param ssn
+   * @param tags
+   * @return SsnResponse
+   */
+  public SsnResponse create(String ssn, List<String> tags) throws Exception {
+    return this.create(ssn, null, tags);
   }
 
   /**

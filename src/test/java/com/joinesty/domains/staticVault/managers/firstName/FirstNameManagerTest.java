@@ -152,7 +152,25 @@ public class FirstNameManagerTest extends BaseMock {
     tags.add("some-firstname-tag-2");
 
     FirstNameResponse firstNameResponse = this.staticVault.getFirstNameManager()
-      .create("some-firstname", null, tags);
+      .create("some-firstname", tags);
+
+    assertEquals(firstNameResponse.getId(), "some-firstname-id");
+    assertEquals(firstNameResponse.getFirstnameAlias(), "some-firstname-alias");
+    assertEquals(firstNameResponse.getTags().get(0), "some-firstname-tag-1");
+    assertEquals(firstNameResponse.getTags().get(1), "some-firstname-tag-2");
+    assertNotNull(firstNameResponse.getFirstname());
+    assertNotNull(firstNameResponse.getAuthTag());
+    assertNotNull(firstNameResponse.getIv());
+  }
+
+  @Test
+  public void GivenRequestToCreateAFirstNameAliasWithGenderAndTags_WhenCreatingAlias_ShouldReturnAFirstNameAlias() throws Exception {
+    List<String> tags = new ArrayList<>();
+    tags.add("some-firstname-tag-1");
+    tags.add("some-firstname-tag-2");
+
+    FirstNameResponse firstNameResponse = this.staticVault.getFirstNameManager()
+      .create("some-firstname", "some-gender", tags);
 
     assertEquals(firstNameResponse.getId(), "some-firstname-id");
     assertEquals(firstNameResponse.getFirstnameAlias(), "some-firstname-alias");

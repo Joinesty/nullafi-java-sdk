@@ -6,7 +6,6 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,6 +36,17 @@ public class DateOfBirthManager {
    */
   public DateOfBirthResponse create(String dateOfBirth) throws Exception {
     return this.create(dateOfBirth, null, null, null);
+  }
+
+  /**
+   * Create a new DateOfBirth string to be aliased for a specific static vault
+   *
+   * @param dateOfBirth
+   * @param tags
+   * @return DateOfBirthResponse
+   */
+  public DateOfBirthResponse create(String dateOfBirth, List<String> tags) throws Exception {
+    return this.create(dateOfBirth, null, null, tags);
   }
 
   /**

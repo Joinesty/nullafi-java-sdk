@@ -6,7 +6,6 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,6 +36,17 @@ public class DriversLicenseManager {
    */
   public DriversLicenseResponse create(String driversLicense) throws Exception {
     return this.create(driversLicense, null, null);
+  }
+
+  /**
+   * Create a new DriversLicense string to be aliased for a specific static vault
+   *
+   * @param driversLicense
+   * @param tags
+   * @return DriversLicenseResponse
+   */
+  public DriversLicenseResponse create(String driversLicense, List<String> tags) throws Exception {
+    return this.create(driversLicense, null, tags);
   }
 
   /**

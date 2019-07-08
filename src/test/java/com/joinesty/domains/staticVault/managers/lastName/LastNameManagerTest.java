@@ -152,7 +152,25 @@ public class LastNameManagerTest extends BaseMock {
     tags.add("some-lastname-tag-2");
 
     LastNameResponse lastNameResponse = this.staticVault.getLastNameManager()
-      .create("some-lastname", null, tags);
+      .create("some-lastname", tags);
+
+    assertEquals(lastNameResponse.getId(), "some-lastname-id");
+    assertEquals(lastNameResponse.getLastnameAlias(), "some-lastname-alias");
+    assertEquals(lastNameResponse.getTags().get(0), "some-lastname-tag-1");
+    assertEquals(lastNameResponse.getTags().get(1), "some-lastname-tag-2");
+    assertNotNull(lastNameResponse.getLastname());
+    assertNotNull(lastNameResponse.getAuthTag());
+    assertNotNull(lastNameResponse.getIv());
+  }
+
+  @Test
+  public void GivenRequestToCreateALastNameAliasWithGenderTags_WhenCreatingAlias_ShouldReturnALastNameAlias() throws Exception {
+    List<String> tags = new ArrayList<>();
+    tags.add("some-lastname-tag-1");
+    tags.add("some-lastname-tag-2");
+
+    LastNameResponse lastNameResponse = this.staticVault.getLastNameManager()
+      .create("some-lastname", "some-gender", tags);
 
     assertEquals(lastNameResponse.getId(), "some-lastname-id");
     assertEquals(lastNameResponse.getLastnameAlias(), "some-lastname-alias");

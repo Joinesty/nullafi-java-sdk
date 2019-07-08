@@ -126,7 +126,25 @@ public class DateOfBirthManagerTest extends BaseMock {
     tags.add("some-dateofbirth-tag-2");
 
     DateOfBirthResponse dateOfBirthResponse = this.staticVault.getDateOfBirthManager()
-      .create("some-dateofbirth", null, null, tags);
+      .create("some-dateofbirth", tags);
+
+    assertEquals(dateOfBirthResponse.getId(), "some-dateofbirth-id");
+    assertEquals(dateOfBirthResponse.getDateofbirthAlias(), "some-dateofbirth-alias");
+    assertEquals(dateOfBirthResponse.getTags().get(0), "some-dateofbirth-tag-1");
+    assertEquals(dateOfBirthResponse.getTags().get(1), "some-dateofbirth-tag-2");
+    assertNotNull(dateOfBirthResponse.getDateofbirth());
+    assertNotNull(dateOfBirthResponse.getAuthTag());
+    assertNotNull(dateOfBirthResponse.getIv());
+  }
+
+  @Test
+  public void GivenRequestToCreateADateOfBirthAliasWithYearAndMonthAndTags_WhenCreatingAlias_ShouldReturnADateOfBirthAlias() throws Exception {
+    List<String> tags = new ArrayList<>();
+    tags.add("some-dateofbirth-tag-1");
+    tags.add("some-dateofbirth-tag-2");
+
+    DateOfBirthResponse dateOfBirthResponse = this.staticVault.getDateOfBirthManager()
+      .create("some-dateofbirth", 1990, 1);
 
     assertEquals(dateOfBirthResponse.getId(), "some-dateofbirth-id");
     assertEquals(dateOfBirthResponse.getDateofbirthAlias(), "some-dateofbirth-alias");

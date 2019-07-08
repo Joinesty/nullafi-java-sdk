@@ -6,7 +6,6 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,6 +47,17 @@ public class LastNameManager {
    */
   public LastNameResponse create(String lastName, String gender) throws Exception {
     return this.create(lastName, gender, null);
+  }
+
+  /**
+   * Create a new LastName string to be aliased for a specific static vault
+   *
+   * @param lastName
+   * @param tags
+   * @return LastNameResponse
+   */
+  public LastNameResponse create(String lastName, List<String> tags) throws Exception {
+    return this.create(lastName, null, tags);
   }
 
   /**

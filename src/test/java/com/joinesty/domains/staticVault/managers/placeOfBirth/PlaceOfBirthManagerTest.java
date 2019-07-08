@@ -152,7 +152,7 @@ public class PlaceOfBirthManagerTest extends BaseMock {
     tags.add("some-placeofbirth-tag-2");
 
     PlaceOfBirthResponse placeOfBirthResponse = this.staticVault.getPlaceOfBirthManager()
-      .create("some-placeofbirth", null, tags);
+      .create("some-placeofbirth", tags);
 
     assertEquals(placeOfBirthResponse.getId(), "some-placeofbirth-id");
     assertEquals(placeOfBirthResponse.getPlaceofbirthAlias(), "some-placeofbirth-alias");
@@ -162,6 +162,25 @@ public class PlaceOfBirthManagerTest extends BaseMock {
     assertNotNull(placeOfBirthResponse.getAuthTag());
     assertNotNull(placeOfBirthResponse.getIv());
   }
+
+  @Test
+  public void GivenRequestToCreateAPlaceOfBirthAliasWithStateTags_WhenCreatingAlias_ShouldReturnAPlaceOfBirthAlias() throws Exception {
+    List<String> tags = new ArrayList<>();
+    tags.add("some-placeofbirth-tag-1");
+    tags.add("some-placeofbirth-tag-2");
+
+    PlaceOfBirthResponse placeOfBirthResponse = this.staticVault.getPlaceOfBirthManager()
+      .create("some-placeofbirth", "some-state", tags);
+
+    assertEquals(placeOfBirthResponse.getId(), "some-placeofbirth-id");
+    assertEquals(placeOfBirthResponse.getPlaceofbirthAlias(), "some-placeofbirth-alias");
+    assertEquals(placeOfBirthResponse.getTags().get(0), "some-placeofbirth-tag-1");
+    assertEquals(placeOfBirthResponse.getTags().get(1), "some-placeofbirth-tag-2");
+    assertNotNull(placeOfBirthResponse.getPlaceofbirth());
+    assertNotNull(placeOfBirthResponse.getAuthTag());
+    assertNotNull(placeOfBirthResponse.getIv());
+  }
+
 
   @Test
   public void GivenRequestToCreateAPlaceOfBirthAlias_WhenCreatingAlias_ShouldReturnAPlaceOfBirthAlias() throws Exception {
