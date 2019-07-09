@@ -78,6 +78,21 @@
     </license>
   </licenses>
 
+  <scm>
+    <url>https://github.com/Joinesty/nullafi-java-sdk</url>
+    <connection>
+      scm:git:git://github.com/Joinesty/nullafi-java-sdk.git
+    </connection>
+    <developerConnection>
+      scm:git:ssh://git@github.com:Joinesty/nullafi-java-sdk.git
+    </developerConnection>
+  </scm>
+  <developers>
+    <developer>
+      <name>Joinesty</name>
+    </developer>
+  </developers>
+
   <reporting>
     <plugins>
       <plugin>
