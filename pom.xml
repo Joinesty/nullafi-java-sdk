@@ -6,7 +6,7 @@
 
   <groupId>com.joinesty</groupId>
   <artifactId>nullafi-java-sdk</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -147,8 +147,10 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
+          <finalName>nullafi-java-sdk-${version}</finalName>
           <archive>
             <manifest>
               <mainClass>com.joinesty.NullafiSDK</mainClass>
@@ -157,6 +159,7 @@
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
+          <appendAssemblyId>false</appendAssemblyId>
         </configuration>
         <executions>
           <execution>
