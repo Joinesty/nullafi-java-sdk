@@ -22,7 +22,7 @@ public class AddressManager {
   /**
    * Creates an instance of AddressManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public AddressManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class AddressManager {
   /**
    * Create a new Address string to be aliased for a specific static vault
    *
-   * @param address
+   * @param address Address
    * @return AddressResponse
+   * @throws Exception Exception
    */
   public AddressResponse create(String address) throws Exception {
     return this.create(address, null, null);
@@ -41,9 +42,10 @@ public class AddressManager {
   /**
    * Create a new Address string to be aliased for a specific static vault
    *
-   * @param address
-   * @param tags
+   * @param address Address
+   * @param tags Tags
    * @return AddressResponse
+   * @throws Exception Exception
    */
   public AddressResponse create(String address, List<String> tags) throws Exception {
     return this.create(address, null, tags);
@@ -52,9 +54,10 @@ public class AddressManager {
   /**
    * Create a new Address string to be aliased for a specific static vault
    *
-   * @param address
-   * @param state
+   * @param address Address
+   * @param state State
    * @return AddressResponse
+   * @throws Exception Exception
    */
   public AddressResponse create(String address, String state) throws Exception {
     return this.create(address, state, null);
@@ -63,10 +66,11 @@ public class AddressManager {
   /**
    * Create a new Address string to be aliased for a specific static vault
    *
-   * @param address
-   * @param state
-   * @param tags
+   * @param address Address
+   * @param state State
+   * @param tags Tags
    * @return AddressResponse
+   * @throws Exception Exception
    */
   public AddressResponse create(String address, String state, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(address);
@@ -93,8 +97,9 @@ public class AddressManager {
   /**
    * Retrieve the Address string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return AddressResponse
+   * @throws Exception Exception
    */
   public AddressResponse retrieve(String id) throws Exception {
     HttpResponse<AddressResponse> response = Unirest
@@ -113,8 +118,9 @@ public class AddressManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param address
+   * @param address Address
    * @return List of AddressResponse
+   * @throws Exception Exception
    */
   public AddressResponse[] retrieveFromRealData(String address) throws Exception {
     return this.retrieveFromRealData(address, null);
@@ -125,9 +131,10 @@ public class AddressManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param address
-   * @param tags
+   * @param address Address
+   * @param tags Tags
    * @return AddressResponse[]
+   * @throws Exception Exception
    */
   public AddressResponse[] retrieveFromRealData(String address, List<String> tags) throws Exception {
     String hash = this.vault.hash(address);
@@ -161,8 +168,9 @@ public class AddressManager {
   /**
    * Delete the Address alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

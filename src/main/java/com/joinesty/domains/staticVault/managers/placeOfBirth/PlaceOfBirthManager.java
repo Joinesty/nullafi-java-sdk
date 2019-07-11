@@ -22,7 +22,7 @@ public class PlaceOfBirthManager {
   /**
    * Creates an instance of PlaceOfBirthManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public PlaceOfBirthManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class PlaceOfBirthManager {
   /**
    * Create a new PlaceOfBirth string to be aliased for a specific static vault
    *
-   * @param placeOfBirth
+   * @param placeOfBirth Place of Birth
    * @return PlaceOfBirthResponse
+   * @throws Exception Exception
    */
   public PlaceOfBirthResponse create(String placeOfBirth) throws Exception {
     return this.create(placeOfBirth, null, null);
@@ -41,9 +42,10 @@ public class PlaceOfBirthManager {
   /**
    * Create a new PlaceOfBirth string to be aliased for a specific static vault
    *
-   * @param placeOfBirth
-   * @param state
+   * @param placeOfBirth Place of Birth
+   * @param state State
    * @return PlaceOfBirthResponse
+   * @throws Exception Exception
    */
   public PlaceOfBirthResponse create(String placeOfBirth, String state) throws Exception {
     return this.create(placeOfBirth, state, null);
@@ -52,9 +54,10 @@ public class PlaceOfBirthManager {
   /**
    * Create a new PlaceOfBirth string to be aliased for a specific static vault
    *
-   * @param placeOfBirth
-   * @param tags
+   * @param placeOfBirth Place of Birth
+   * @param tags Tags
    * @return PlaceOfBirthResponse
+   * @throws Exception Exception
    */
   public PlaceOfBirthResponse create(String placeOfBirth, List<String> tags) throws Exception {
     return this.create(placeOfBirth, null, tags);
@@ -63,10 +66,11 @@ public class PlaceOfBirthManager {
   /**
    * Create a new PlaceOfBirth string to be aliased for a specific static vault
    *
-   * @param placeOfBirth
-   * @param state
-   * @param tags
+   * @param placeOfBirth Place of Birth
+   * @param state State
+   * @param tags Tags
    * @return PlaceOfBirthResponse
+   * @throws Exception Exception
    */
   public PlaceOfBirthResponse create(String placeOfBirth, String state, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(placeOfBirth);
@@ -93,8 +97,9 @@ public class PlaceOfBirthManager {
   /**
    * Retrieve the PlaceOfBirth string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return PlaceOfBirthResponse
+   * @throws Exception Exception
    */
   public PlaceOfBirthResponse retrieve(String id) throws Exception {
     HttpResponse<PlaceOfBirthResponse> response = Unirest
@@ -113,8 +118,9 @@ public class PlaceOfBirthManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by place created.
    *
-   * @param placeOfBirth
+   * @param placeOfBirth Place of Birth
    * @return List of PlaceOfBirthResponse
+   * @throws Exception Exception
    */
   public PlaceOfBirthResponse[] retrieveFromRealData(String placeOfBirth) throws Exception {
     return this.retrieveFromRealData(placeOfBirth, null);
@@ -125,9 +131,10 @@ public class PlaceOfBirthManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by place created.
    *
-   * @param placeOfBirth
-   * @param tags
+   * @param placeOfBirth Place of Birth
+   * @param tags Tags
    * @return PlaceOfBirthResponse[]
+   * @throws Exception Exception
    */
   public PlaceOfBirthResponse[] retrieveFromRealData(String placeOfBirth, List<String> tags) throws Exception {
     String hash = this.vault.hash(placeOfBirth);
@@ -161,8 +168,9 @@ public class PlaceOfBirthManager {
   /**
    * Delete the PlaceOfBirth alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

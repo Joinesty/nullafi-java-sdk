@@ -51,10 +51,11 @@ public class CommunicationVault extends API {
   /**
    * Request the API to create a new communication vault
    *
-   * @param client
-   * @param name
-   * @param tags
+   * @param client Client
+   * @param name Name
+   * @param tags Tags
    * @return CommunicationVault
+   * @throws Exception Exception
    */
   public static CommunicationVault createCommunicationVault(Client client, String name, List<String> tags) throws Exception {
     final Security security = new Security();
@@ -98,10 +99,11 @@ public class CommunicationVault extends API {
   /**
    * Retrieve the communication vault from id
    *
-   * @param client
-   * @param vaultId
-   * @param masterKey
+   * @param client Client
+   * @param vaultId VaultId Vault ID
+   * @param masterKey Master Key
    * @return CommunicationVault
+   * @throws Exception Exception
    */
   public static CommunicationVault retrieveCommunicationVault(Client client, String vaultId, String masterKey) throws Exception {
     HttpResponse<CommunicationVaultResponse> response = Unirest
@@ -125,9 +127,10 @@ public class CommunicationVault extends API {
   /**
    * Delete the communication vault from id
    *
-   * @param client
-   * @param vaultId
+   * @param client Client
+   * @param vaultId VaultId Vault ID
    * @return boolean
+   * @throws Exception Exception
    */
   public static boolean delete(Client client, String vaultId) throws Exception {
     HttpResponse<String> response = Unirest

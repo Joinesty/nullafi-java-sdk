@@ -22,7 +22,7 @@ public class GenderManager {
   /**
    * Creates an instance of GenderManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public GenderManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class GenderManager {
   /**
    * Create a new Gender string to be aliased for a specific static vault
    *
-   * @param gender
+   * @param gender Gender
    * @return GenderResponse
+   * @throws Exception Exception
    */
   public GenderResponse create(String gender) throws Exception {
     return this.create(gender, null);
@@ -41,9 +42,10 @@ public class GenderManager {
   /**
    * Create a new Gender string to be aliased for a specific static vault
    *
-   * @param gender
-   * @param tags
+   * @param gender Gender
+   * @param tags Tags
    * @return GenderResponse
+   * @throws Exception Exception
    */
   public GenderResponse create(String gender, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(gender);
@@ -68,8 +70,9 @@ public class GenderManager {
   /**
    * Retrieve the Gender string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return GenderResponse
+   * @throws Exception Exception
    */
   public GenderResponse retrieve(String id) throws Exception {
     HttpResponse<GenderResponse> response = Unirest
@@ -88,8 +91,9 @@ public class GenderManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param gender
+   * @param gender Gender
    * @return List of GenderResponse
+   * @throws Exception Exception
    */
   public GenderResponse[] retrieveFromRealData(String gender) throws Exception {
     return this.retrieveFromRealData(gender, null);
@@ -100,9 +104,10 @@ public class GenderManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param gender
-   * @param tags
+   * @param gender Gender
+   * @param tags Tags
    * @return GenderResponse[]
+   * @throws Exception Exception
    */
   public GenderResponse[] retrieveFromRealData(String gender, List<String> tags) throws Exception {
 
@@ -137,8 +142,9 @@ public class GenderManager {
   /**
    * Delete the GenderManager alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

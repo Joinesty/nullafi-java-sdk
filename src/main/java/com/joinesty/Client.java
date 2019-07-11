@@ -34,7 +34,7 @@ public class Client {
   /**
    * Authenticate the Client API
    *
-   * @param apiKey
+   * @param apiKey API Key
    */
   void authenticate(String apiKey) throws Exception {
     AuthenticateRequest request = new AuthenticateRequest();
@@ -56,8 +56,9 @@ public class Client {
   /**
    * Create a new static vault
    *
-   * @param name
+   * @param name Name
    * @return StaticVault
+   * @throws Exception Exception
    */
   public StaticVault createStaticVault(String name) throws Exception {
     return this.createStaticVault(name, null);
@@ -66,9 +67,10 @@ public class Client {
   /**
    * Create a new static vault
    *
-   * @param name
-   * @param tags
+   * @param name Name
+   * @param tags Tags
    * @return StaticVault
+   * @throws Exception Exception
    */
   public StaticVault createStaticVault(String name, List<String> tags) throws Exception {
     return StaticVault.createStaticVault(this, name, tags);
@@ -77,9 +79,10 @@ public class Client {
   /**
    * Retrieve a existing static vault
    *
-   * @param vaultId
-   * @param masterKey
+   * @param vaultId VaultId Vault ID
+   * @param masterKey Master Key
    * @return StaticVault
+   * @throws Exception Exception
    */
   public StaticVault retrieveStaticVault(String vaultId, String masterKey) throws Exception {
     return StaticVault.retrieveStaticVault(this, vaultId, masterKey);
@@ -88,8 +91,9 @@ public class Client {
   /**
    * Delete an existing static vault
    *
-   * @param vaultId
+   * @param vaultId VaultId Vault ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean deleteStaticVault(String vaultId) throws Exception {
     return StaticVault.delete(this, vaultId);
@@ -98,8 +102,9 @@ public class Client {
   /**
    * Create a new communication vault
    *
-   * @param name
+   * @param name Name
    * @return CommunicationVault
+   * @throws Exception Exception
    */
   public CommunicationVault createCommunicationVault(String name) throws Exception {
     return CommunicationVault.createCommunicationVault(this, name, null);
@@ -108,9 +113,10 @@ public class Client {
   /**
    * Create a new communication vault
    *
-   * @param name
-   * @param tags
+   * @param name Name
+   * @param tags Tags
    * @return CommunicationVault
+   * @throws Exception Exception
    */
   public CommunicationVault createCommunicationVault(String name, List<String> tags) throws Exception {
     return CommunicationVault.createCommunicationVault(this, name, tags);
@@ -119,9 +125,10 @@ public class Client {
   /**
    * Retrieve a existing communication vault
    *
-   * @param vaultId
-   * @param masterKey
+   * @param vaultId VaultId Vault ID
+   * @param masterKey Master Key
    * @return CommunicationVault
+   * @throws Exception Exception
    */
   public CommunicationVault retrieveCommunicationVault(String vaultId, String masterKey) throws Exception {
     return CommunicationVault.retrieveCommunicationVault(this, vaultId, masterKey);
@@ -130,8 +137,9 @@ public class Client {
   /**
    * Delete an existing communication vault
    *
-   * @param vaultId
+   * @param vaultId VaultId Vault ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean deleteCommunicationVault(String vaultId) throws Exception {
     return CommunicationVault.delete(this, vaultId);

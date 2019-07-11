@@ -22,7 +22,7 @@ public class DriversLicenseManager {
   /**
    * Creates an instance of DriversLicenseManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public DriversLicenseManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class DriversLicenseManager {
   /**
    * Create a new DriversLicense string to be aliased for a specific static vault
    *
-   * @param driversLicense
+   * @param driversLicense Drivers License
    * @return DriversLicenseResponse
+   * @throws Exception Exception
    */
   public DriversLicenseResponse create(String driversLicense) throws Exception {
     return this.create(driversLicense, null, null);
@@ -41,9 +42,10 @@ public class DriversLicenseManager {
   /**
    * Create a new DriversLicense string to be aliased for a specific static vault
    *
-   * @param driversLicense
-   * @param tags
+   * @param driversLicense Drivers License
+   * @param tags Tags
    * @return DriversLicenseResponse
+   * @throws Exception Exception
    */
   public DriversLicenseResponse create(String driversLicense, List<String> tags) throws Exception {
     return this.create(driversLicense, null, tags);
@@ -52,9 +54,10 @@ public class DriversLicenseManager {
   /**
    * Create a new DriversLicense string to be aliased for a specific static vault
    *
-   * @param driversLicense
-   * @param state
+   * @param driversLicense Drivers License
+   * @param state State
    * @return DriversLicenseResponse
+   * @throws Exception Exception
    */
   public DriversLicenseResponse create(String driversLicense, String state) throws Exception {
     return this.create(driversLicense, state, null);
@@ -63,10 +66,11 @@ public class DriversLicenseManager {
   /**
    * Create a new DriversLicense string to be aliased for a specific static vault
    *
-   * @param driversLicense
-   * @param tags
-   * @param state
+   * @param driversLicense Drivers License
+   * @param tags Tags
+   * @param state State
    * @return DriversLicenseResponse
+   * @throws Exception Exception
    */
   public DriversLicenseResponse create(String driversLicense, String state, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(driversLicense);
@@ -94,8 +98,9 @@ public class DriversLicenseManager {
   /**
    * Retrieve the DriversLicense string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return DriversLicenseResponse
+   * @throws Exception Exception
    */
   public DriversLicenseResponse retrieve(String id) throws Exception {
 
@@ -115,8 +120,9 @@ public class DriversLicenseManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param driversLicense
+   * @param driversLicense Drivers License
    * @return List of DriversLicenseResponse
+   * @throws Exception Exception
    */
   public DriversLicenseResponse[] retrieveFromRealData(String driversLicense) throws Exception {
     return this.retrieveFromRealData(driversLicense, null);
@@ -127,9 +133,10 @@ public class DriversLicenseManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param driversLicense
-   * @param tags
+   * @param driversLicense Drivers License
+   * @param tags Tags
    * @return DriversLicenseResponse[]
+   * @throws Exception Exception
    */
   public DriversLicenseResponse[] retrieveFromRealData(String driversLicense, List<String> tags) throws Exception {
     String hash = this.vault.hash(driversLicense);
@@ -163,8 +170,9 @@ public class DriversLicenseManager {
   /**
    * Delete the DriversLicense alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

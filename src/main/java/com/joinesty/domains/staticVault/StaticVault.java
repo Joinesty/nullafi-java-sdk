@@ -106,10 +106,11 @@ public class StaticVault extends API {
   /**
    * Request the API to create a new static vault
    *
-   * @param client
-   * @param name
-   * @param tags
+   * @param client Client
+   * @param name Name
+   * @param tags Tags
    * @return StaticVault
+   * @throws Exception Exception
    */
   public static StaticVault createStaticVault(Client client, String name, List<String> tags) throws Exception {
     StaticVaultRequest requestBody = new StaticVaultRequest();
@@ -137,10 +138,11 @@ public class StaticVault extends API {
   /**
    * Retrieve the static vault from id
    *
-   * @param client
-   * @param vaultId
-   * @param masterKey
+   * @param client Client
+   * @param vaultId VaultId Vault ID
+   * @param masterKey Master Key
    * @return StaticVault
+   * @throws Exception Exception
    */
   public static StaticVault retrieveStaticVault(Client client, String vaultId, String masterKey) throws Exception {
 
@@ -164,9 +166,10 @@ public class StaticVault extends API {
   /**
    * Delete the static vault from id
    *
-   * @param client
-   * @param vaultId
+   * @param client Client
+   * @param vaultId VaultId Vault ID
    * @return boolean
+   * @throws Exception Exception
    */
   public static boolean delete(Client client, String vaultId) throws Exception {
     HttpResponse<String> response = Unirest

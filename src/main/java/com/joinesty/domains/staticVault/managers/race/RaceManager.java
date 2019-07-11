@@ -22,7 +22,7 @@ public class RaceManager {
   /**
    * Creates an instance of RaceManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public RaceManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class RaceManager {
   /**
    * Create a new Race string to be aliased for a specific static vault
    *
-   * @param race
+   * @param race Race
    * @return RaceResponse
+   * @throws Exception Exception
    */
   public RaceResponse create(String race) throws Exception {
     return this.create(race, null);
@@ -41,9 +42,10 @@ public class RaceManager {
   /**
    * Create a new Race string to be aliased for a specific static vault
    *
-   * @param race
-   * @param tags
+   * @param race Race
+   * @param tags Tags
    * @return RaceResponse
+   * @throws Exception Exception
    */
   public RaceResponse create(String race, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(race);
@@ -68,8 +70,9 @@ public class RaceManager {
   /**
    * Retrieve the Race string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return RaceResponse
+   * @throws Exception Exception
    */
   public RaceResponse retrieve(String id) throws Exception {
     HttpResponse<RaceResponse> response = Unirest
@@ -88,8 +91,9 @@ public class RaceManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param race
+   * @param race Race
    * @return List of RaceResponse
+   * @throws Exception Exception
    */
   public RaceResponse[] retrieveFromRealData(String race) throws Exception {
     return this.retrieveFromRealData(race, null);
@@ -100,9 +104,10 @@ public class RaceManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param race
-   * @param tags
+   * @param race Race
+   * @param tags Tags
    * @return RaceResponse[]
+   * @throws Exception Exception
    */
   public RaceResponse[] retrieveFromRealData(String race, List<String> tags) throws Exception {
 
@@ -137,8 +142,9 @@ public class RaceManager {
   /**
    * Delete the RaceManager alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

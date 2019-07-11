@@ -22,7 +22,7 @@ public class FirstNameManager {
   /**
    * Creates an instance of FirstNameManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public FirstNameManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class FirstNameManager {
   /**
    * Create a new FirstName string to be aliased for a specific static vault
    *
-   * @param firstName
+   * @param firstName First Name
    * @return FirstNameResponse
+   * @throws Exception Exception
    */
   public FirstNameResponse create(String firstName) throws Exception {
     return this.create(firstName, null, null);
@@ -41,9 +42,10 @@ public class FirstNameManager {
   /**
    * Create a new FirstName string to be aliased for a specific static vault
    *
-   * @param firstName
-   * @param tags
+   * @param firstName First Name
+   * @param tags Tags
    * @return FirstNameResponse
+   * @throws Exception Exception
    */
   public FirstNameResponse create(String firstName, List<String> tags) throws Exception {
     return this.create(firstName, null, tags);
@@ -52,9 +54,10 @@ public class FirstNameManager {
   /**
    * Create a new FirstName string to be aliased for a specific static vault
    *
-   * @param firstName
-   * @param gender
+   * @param firstName First Name
+   * @param gender Gender
    * @return FirstNameResponse
+   * @throws Exception Exception
    */
   public FirstNameResponse create(String firstName, String gender) throws Exception {
     return this.create(firstName, gender, null);
@@ -63,10 +66,11 @@ public class FirstNameManager {
   /**
    * Create a new FirstName string to be aliased for a specific static vault
    *
-   * @param firstName
-   * @param gender
-   * @param tags
+   * @param firstName First Name
+   * @param gender Gender
+   * @param tags Tags
    * @return FirstNameResponse
+   * @throws Exception Exception
    */
   public FirstNameResponse create(String firstName, String gender, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(firstName);
@@ -93,8 +97,9 @@ public class FirstNameManager {
   /**
    * Retrieve the FirstName string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return FirstNameResponse
+   * @throws Exception Exception
    */
   public FirstNameResponse retrieve(String id) throws Exception {
     HttpResponse<FirstNameResponse> response = Unirest
@@ -113,8 +118,9 @@ public class FirstNameManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param firstName
+   * @param firstName First Name
    * @return List of FirstNameResponse
+   * @throws Exception Exception
    */
   public FirstNameResponse[] retrieveFromRealData(String firstName) throws Exception {
     return this.retrieveFromRealData(firstName, null);
@@ -125,9 +131,10 @@ public class FirstNameManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param firstName
-   * @param tags
+   * @param firstName First Name
+   * @param tags Tags
    * @return FirstNameResponse[]
+   * @throws Exception Exception
    */
   public FirstNameResponse[] retrieveFromRealData(String firstName, List<String> tags) throws Exception {
     String hash = this.vault.hash(firstName);
@@ -161,8 +168,9 @@ public class FirstNameManager {
   /**
    * Delete the FirstName alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

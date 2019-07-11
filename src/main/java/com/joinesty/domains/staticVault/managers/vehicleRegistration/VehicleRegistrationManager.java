@@ -22,7 +22,7 @@ public class VehicleRegistrationManager {
   /**
    * Creates an instance of VehicleRegistrationManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public VehicleRegistrationManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class VehicleRegistrationManager {
   /**
    * Create a new VehicleRegistration string to be aliased for a specific static vault
    *
-   * @param vehicleRegistration
+   * @param vehicleRegistration Vehicle Registration
    * @return VehicleRegistrationResponse
+   * @throws Exception Exception
    */
   public VehicleRegistrationResponse create(String vehicleRegistration) throws Exception {
     return this.create(vehicleRegistration, null);
@@ -41,9 +42,10 @@ public class VehicleRegistrationManager {
   /**
    * Create a new VehicleRegistration string to be aliased for a specific static vault
    *
-   * @param vehicleRegistration
-   * @param tags
+   * @param vehicleRegistration Vehicle Registration
+   * @param tags Tags
    * @return VehicleRegistrationResponse
+   * @throws Exception Exception
    */
   public VehicleRegistrationResponse create(String vehicleRegistration, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(vehicleRegistration);
@@ -68,8 +70,9 @@ public class VehicleRegistrationManager {
   /**
    * Retrieve the VehicleRegistration string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return VehicleRegistrationResponse
+   * @throws Exception Exception
    */
   public VehicleRegistrationResponse retrieve(String id) throws Exception {
     HttpResponse<VehicleRegistrationResponse> response = Unirest
@@ -88,8 +91,9 @@ public class VehicleRegistrationManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param vehicleRegistration
+   * @param vehicleRegistration Vehicle Registration
    * @return List of VehicleRegistrationResponse
+   * @throws Exception Exception
    */
   public VehicleRegistrationResponse[] retrieveFromRealData(String vehicleRegistration) throws Exception {
     return this.retrieveFromRealData(vehicleRegistration, null);
@@ -100,9 +104,10 @@ public class VehicleRegistrationManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param vehicleRegistration
-   * @param tags
+   * @param vehicleRegistration Vehicle Registration
+   * @param tags Tags
    * @return VehicleRegistrationResponse[]
+   * @throws Exception Exception
    */
   public VehicleRegistrationResponse[] retrieveFromRealData(String vehicleRegistration, List<String> tags) throws Exception {
     String hash = this.vault.hash(vehicleRegistration);
@@ -136,8 +141,9 @@ public class VehicleRegistrationManager {
   /**
    * Delete the VehicleRegistration alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

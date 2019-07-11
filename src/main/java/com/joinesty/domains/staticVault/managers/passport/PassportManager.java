@@ -22,7 +22,7 @@ public class PassportManager {
   /**
    * Creates an instance of PassportManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public PassportManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class PassportManager {
   /**
    * Create a new Passport string to be aliased for a specific static vault
    *
-   * @param passport
+   * @param passport Passport
    * @return PassportResponse
+   * @throws Exception Exception
    */
   public PassportResponse create(String passport) throws Exception {
     return this.create(passport, null);
@@ -41,9 +42,10 @@ public class PassportManager {
   /**
    * Create a new Passport string to be aliased for a specific static vault
    *
-   * @param passport
-   * @param tags
+   * @param passport Passport
+   * @param tags Tags
    * @return PassportResponse
+   * @throws Exception Exception
    */
   public PassportResponse create(String passport, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(passport);
@@ -68,8 +70,9 @@ public class PassportManager {
   /**
    * Retrieve the Passport string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return PassportResponse
+   * @throws Exception Exception
    */
   public PassportResponse retrieve(String id) throws Exception {
     HttpResponse<PassportResponse> response = Unirest
@@ -88,8 +91,9 @@ public class PassportManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param passport
+   * @param passport Passport
    * @return List of PassportResponse
+   * @throws Exception Exception
    */
   public PassportResponse[] retrieveFromRealData(String passport) throws Exception {
     return this.retrieveFromRealData(passport, null);
@@ -100,9 +104,10 @@ public class PassportManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param passport
-   * @param tags
+   * @param passport Passport
+   * @param tags Tags
    * @return PassportResponse[]
+   * @throws Exception Exception
    */
   public PassportResponse[] retrieveFromRealData(String passport, List<String> tags) throws Exception {
     String hash = this.vault.hash(passport);
@@ -136,8 +141,9 @@ public class PassportManager {
   /**
    * Delete the PassportManager alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

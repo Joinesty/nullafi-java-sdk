@@ -19,7 +19,7 @@ public class NullafiSDK {
   /**
    * Creates an instance of NullafiSDK.
    *
-   * @param apiKey
+   * @param apiKey API Key
    */
   public NullafiSDK(String apiKey) {
     this.apiKey = apiKey;
@@ -29,6 +29,7 @@ public class NullafiSDK {
    * Create a new instance of Client
    *
    * @return Client
+   * @throws Exception Exception
    */
   public Client createClient() throws Exception {
     this.client = new Client();

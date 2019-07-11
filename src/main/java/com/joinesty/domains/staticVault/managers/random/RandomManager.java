@@ -22,7 +22,7 @@ public class RandomManager {
   /**
    * Creates an instance of RandomManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public RandomManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class RandomManager {
   /**
    * Create a new Random string to be aliased for a specific static vault
    *
-   * @param data
+   * @param data Data
    * @return RandomResponse
+   * @throws Exception Exception
    */
   public RandomResponse create(String data) throws Exception {
     return this.create(data, null);
@@ -41,9 +42,10 @@ public class RandomManager {
   /**
    * Create a new Random string to be aliased for a specific static vault
    *
-   * @param data
-   * @param tags
+   * @param data Data
+   * @param tags Tags
    * @return RandomResponse
+   * @throws Exception Exception
    */
   public RandomResponse create(String data, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(data);
@@ -68,8 +70,9 @@ public class RandomManager {
   /**
    * Retrieve the Random string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return RandomResponse
+   * @throws Exception Exception
    */
   public RandomResponse retrieve(String id) throws Exception {
     HttpResponse<RandomResponse> response = Unirest
@@ -88,8 +91,9 @@ public class RandomManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param data
+   * @param data Data
    * @return List of RandomResponse
+   * @throws Exception Exception
    */
   public RandomResponse[] retrieveFromRealData(String data) throws Exception {
     return this.retrieveFromRealData(data, null);
@@ -100,9 +104,10 @@ public class RandomManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param data
-   * @param tags
+   * @param data Data
+   * @param tags Tags
    * @return RandomResponse[]
+   * @throws Exception Exception
    */
   public RandomResponse[] retrieveFromRealData(String data, List<String> tags) throws Exception {
     String hash = this.vault.hash(data);
@@ -136,8 +141,9 @@ public class RandomManager {
   /**
    * Delete the Random alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest
