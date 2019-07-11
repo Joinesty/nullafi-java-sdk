@@ -22,7 +22,7 @@ public class GenericManager {
   /**
    * Creates an instance of GenericManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public GenericManager(StaticVault vault) {
     this.vault = vault;
@@ -31,9 +31,10 @@ public class GenericManager {
   /**
    * Create a new Generic string to be aliased for a specific static vault
    *
-   * @param data
-   * @param template
+   * @param data Data
+   * @param template Template
    * @return GenericResponse
+   * @throws Exception Exception
    */
   public GenericResponse create(String data, String template) throws Exception {
     return this.create(data, template, null);
@@ -42,10 +43,11 @@ public class GenericManager {
   /**
    * Create a new Generic string to be aliased for a specific static vault
    *
-   * @param data
-   * @param template
-   * @param tags
+   * @param data Data
+   * @param template Template
+   * @param tags Tags
    * @return GenericResponse
+   * @throws Exception Exception
    */
   public GenericResponse create(String data, String template, List<String> tags) throws Exception {
 
@@ -72,8 +74,9 @@ public class GenericManager {
   /**
    * Retrieve the Generic string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return GenericResponse
+   * @throws Exception Exception
    */
   public GenericResponse retrieve(String id) throws Exception {
     HttpResponse<GenericResponse> response = Unirest
@@ -92,8 +95,9 @@ public class GenericManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param data
+   * @param data Data
    * @return List of GenericResponse
+   * @throws Exception Exception
    */
   public GenericResponse[] retrieveFromRealData(String data) throws Exception {
     return this.retrieveFromRealData(data, null);
@@ -104,9 +108,10 @@ public class GenericManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param data
-   * @param tags
+   * @param data Data
+   * @param tags Tags
    * @return GenericResponse[]
+   * @throws Exception Exception
    */
   public GenericResponse[] retrieveFromRealData(String data, List<String> tags) throws Exception {
     String hash = this.vault.hash(data);
@@ -140,8 +145,9 @@ public class GenericManager {
   /**
    * Delete the Generic alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

@@ -7,7 +7,7 @@
   <groupId>com.joinesty</groupId>
   <artifactId>nullafi-java-sdk</artifactId>
   <version>1.0.1</version>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
 
   <properties>
     <java.version>1.8</java.version>
@@ -173,18 +173,45 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>${maven.gpg.version}</version>
+        <artifactId>maven-javadoc-plugin</artifactId>
         <executions>
           <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
+            <id>attach-javadocs</id>
             <goals>
-              <goal>sign</goal>
+              <goal>jar</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <sourcepath>src/main/java</sourcepath>
+        </configuration>
+      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-gpg-plugin</artifactId>-->
+<!--        <version>${maven.gpg.version}</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>sign-artifacts</id>-->
+<!--            <phase>verify</phase>-->
+<!--            <goals>-->
+<!--              <goal>sign</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
     </plugins>
   </build>
 

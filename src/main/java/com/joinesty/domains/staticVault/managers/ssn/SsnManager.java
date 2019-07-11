@@ -22,7 +22,7 @@ public class SsnManager {
   /**
    * Creates an instance of SsnManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public SsnManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class SsnManager {
   /**
    * Create a new Ssn string to be aliased for a specific static vault
    *
-   * @param ssn
+   * @param ssn Ssn
    * @return SsnResponse
+   * @throws Exception Exception
    */
   public SsnResponse create(String ssn) throws Exception {
     return this.create(ssn, null, null);
@@ -41,9 +42,10 @@ public class SsnManager {
   /**
    * Create a new Ssn string to be aliased for a specific static vault
    *
-   * @param ssn
-   * @param state
+   * @param ssn Ssn
+   * @param state State
    * @return SsnResponse
+   * @throws Exception Exception
    */
   public SsnResponse create(String ssn, String state) throws Exception {
     return this.create(ssn, state, null);
@@ -52,9 +54,10 @@ public class SsnManager {
   /**
    * Create a new Ssn string to be aliased for a specific static vault
    *
-   * @param ssn
-   * @param tags
+   * @param ssn Ssn
+   * @param tags Tags
    * @return SsnResponse
+   * @throws Exception Exception
    */
   public SsnResponse create(String ssn, List<String> tags) throws Exception {
     return this.create(ssn, null, tags);
@@ -63,10 +66,11 @@ public class SsnManager {
   /**
    * Create a new Ssn string to be aliased for a specific static vault
    *
-   * @param ssn
-   * @param tags
-   * @param state
+   * @param ssn Ssn
+   * @param tags Tags
+   * @param state State
    * @return SsnResponse
+   * @throws Exception Exception
    */
   public SsnResponse create(String ssn, String state, List<String> tags) throws Exception {
 
@@ -94,8 +98,9 @@ public class SsnManager {
   /**
    * Retrieve the Ssn string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return SsnResponse
+   * @throws Exception Exception
    */
   public SsnResponse retrieve(String id) throws Exception {
     HttpResponse<SsnResponse> response = Unirest
@@ -114,8 +119,9 @@ public class SsnManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param ssn
+   * @param ssn Ssn
    * @return List of SsnResponse
+   * @throws Exception Exception
    */
   public SsnResponse[] retrieveFromRealData(String ssn) throws Exception {
     return this.retrieveFromRealData(ssn, null);
@@ -126,9 +132,10 @@ public class SsnManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param ssn
-   * @param tags
+   * @param ssn Ssn
+   * @param tags Tags
    * @return SsnResponse[]
+   * @throws Exception Exception
    */
   public SsnResponse[] retrieveFromRealData(String ssn, List<String> tags) throws Exception {
     String hash = this.vault.hash(ssn);
@@ -162,8 +169,9 @@ public class SsnManager {
   /**
    * Delete the SsnManager alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

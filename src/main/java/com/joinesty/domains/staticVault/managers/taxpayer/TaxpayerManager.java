@@ -22,7 +22,7 @@ public class TaxpayerManager {
   /**
    * Creates an instance of TaxpayerManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public TaxpayerManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class TaxpayerManager {
   /**
    * Create a new Taxpayer string to be aliased for a specific static vault
    *
-   * @param taxpayer
+   * @param taxpayer Taxpayer
    * @return TaxpayerResponse
+   * @throws Exception Exception
    */
   public TaxpayerResponse create(String taxpayer) throws Exception {
     return this.create(taxpayer, null);
@@ -41,9 +42,10 @@ public class TaxpayerManager {
   /**
    * Create a new Taxpayer string to be aliased for a specific static vault
    *
-   * @param taxpayer
-   * @param tags
+   * @param taxpayer Taxpayer
+   * @param tags Tags
    * @return TaxpayerResponse
+   * @throws Exception Exception
    */
   public TaxpayerResponse create(String taxpayer, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(taxpayer);
@@ -68,8 +70,9 @@ public class TaxpayerManager {
   /**
    * Retrieve the Taxpayer string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return TaxpayerResponse
+   * @throws Exception Exception
    */
   public TaxpayerResponse retrieve(String id) throws Exception {
     HttpResponse<TaxpayerResponse> response = Unirest
@@ -88,8 +91,9 @@ public class TaxpayerManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param taxpayer
+   * @param taxpayer Taxpayer
    * @return List of TaxpayerResponse
+   * @throws Exception Exception
    */
   public TaxpayerResponse[] retrieveFromRealData(String taxpayer) throws Exception {
     return this.retrieveFromRealData(taxpayer, null);
@@ -100,9 +104,10 @@ public class TaxpayerManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param taxpayer
-   * @param tags
+   * @param taxpayer Taxpayer
+   * @param tags Tags
    * @return TaxpayerResponse[]
+   * @throws Exception Exception
    */
   public TaxpayerResponse[] retrieveFromRealData(String taxpayer, List<String> tags) throws Exception {
     String hash = this.vault.hash(taxpayer);
@@ -136,8 +141,9 @@ public class TaxpayerManager {
   /**
    * Delete the TaxpayerManager alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

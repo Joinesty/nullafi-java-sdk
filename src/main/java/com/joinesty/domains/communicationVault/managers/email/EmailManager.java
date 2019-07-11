@@ -23,7 +23,7 @@ public class EmailManager {
   /**
    * Creates an instance of EmailManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public EmailManager(CommunicationVault vault) {
     this.vault = vault;
@@ -32,8 +32,9 @@ public class EmailManager {
   /**
    * Create a new Email string to be aliased for a specific static vault
    *
-   * @param email
+   * @param email Email Email
    * @return EmailResponse
+   * @throws Exception Exception
    */
   public EmailResponse create(String email) throws Exception {
     return this.create(email, null);
@@ -42,9 +43,10 @@ public class EmailManager {
   /**
    * Create a new Email string to be aliased for a specific static vault
    *
-   * @param email
-   * @param tags
+   * @param email Email
+   * @param tags Tags
    * @return EmailResponse
+   * @throws Exception Exception
    */
   public EmailResponse create(String email, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(email);
@@ -69,8 +71,9 @@ public class EmailManager {
   /**
    * Retrieve the Email string alias from a communication vault
    *
-   * @param id
+   * @param id ID
    * @return EmailResponse
+   * @throws Exception Exception
    */
   public EmailResponse retrieve(String id) throws Exception {
     HttpResponse<EmailResponse> response = Unirest
@@ -89,8 +92,9 @@ public class EmailManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param email
+   * @param email Email
    * @return List of EmailResponse
+   * @throws Exception Exception
    */
   public EmailResponse[] retrieveFromRealData(String email) throws Exception {
     return this.retrieveFromRealData(email, null);
@@ -101,9 +105,10 @@ public class EmailManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param email
-   * @param tags
+   * @param email Email
+   * @param tags Tags
    * @return EmailResponse[]
+   * @throws Exception Exception
    */
   public EmailResponse[] retrieveFromRealData(String email, List<String> tags) throws Exception {
     String hash = this.vault.hash(email);
@@ -137,8 +142,9 @@ public class EmailManager {
   /**
    * Delete the Email alias from communication vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest

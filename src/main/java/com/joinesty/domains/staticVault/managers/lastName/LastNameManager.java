@@ -22,7 +22,7 @@ public class LastNameManager {
   /**
    * Creates an instance of LastNameManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public LastNameManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class LastNameManager {
   /**
    * Create a new LastName string to be aliased for a specific static vault
    *
-   * @param lastName
+   * @param lastName Last Name
    * @return LastNameResponse
+   * @throws Exception Exception
    */
   public LastNameResponse create(String lastName) throws Exception {
     return this.create(lastName, null, null);
@@ -41,9 +42,10 @@ public class LastNameManager {
   /**
    * Create a new LastName string to be aliased for a specific static vault
    *
-   * @param lastName
-   * @param gender
+   * @param lastName Last Name
+   * @param gender Gender
    * @return LastNameResponse
+   * @throws Exception Exception
    */
   public LastNameResponse create(String lastName, String gender) throws Exception {
     return this.create(lastName, gender, null);
@@ -52,9 +54,10 @@ public class LastNameManager {
   /**
    * Create a new LastName string to be aliased for a specific static vault
    *
-   * @param lastName
-   * @param tags
+   * @param lastName Last Name
+   * @param tags Tags
    * @return LastNameResponse
+   * @throws Exception Exception
    */
   public LastNameResponse create(String lastName, List<String> tags) throws Exception {
     return this.create(lastName, null, tags);
@@ -63,10 +66,11 @@ public class LastNameManager {
   /**
    * Create a new LastName string to be aliased for a specific static vault
    *
-   * @param lastName
-   * @param gender
-   * @param tags
-   * @return LastNameResponse
+   * @param lastName Last Name
+   * @param gender Gender
+   * @param tags Tags
+   * @return LastNameRespons
+   * @throws Exception Exception
    */
   public LastNameResponse create(String lastName, String gender, List<String> tags) throws Exception {
 
@@ -96,8 +100,9 @@ public class LastNameManager {
   /**
    * Retrieve the LastName string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return LastNameResponse
+   * @throws Exception Exception
    */
   public LastNameResponse retrieve(String id) throws Exception {
 
@@ -119,8 +124,9 @@ public class LastNameManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param lastName
+   * @param lastName Last Name
    * @return List of LastNameResponse
+   * @throws Exception Exception
    */
   public LastNameResponse[] retrieveFromRealData(String lastName) throws Exception {
     return this.retrieveFromRealData(lastName, null);
@@ -131,9 +137,10 @@ public class LastNameManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param lastName
-   * @param tags
+   * @param lastName Last Name
+   * @param tags Tags
    * @return LastNameResponse[]
+   * @throws Exception Exception
    */
   public LastNameResponse[] retrieveFromRealData(String lastName, List<String> tags) throws Exception {
 
@@ -170,8 +177,9 @@ public class LastNameManager {
   /**
    * Delete the LastName alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
 

@@ -22,7 +22,7 @@ public class DateOfBirthManager {
   /**
    * Creates an instance of DateOfBirthManager.
    *
-   * @param vault
+   * @param vault Vault
    */
   public DateOfBirthManager(StaticVault vault) {
     this.vault = vault;
@@ -31,8 +31,9 @@ public class DateOfBirthManager {
   /**
    * Create a new DateOfBirth string to be aliased for a specific static vault
    *
-   * @param dateOfBirth
+   * @param dateOfBirth Date of Birth
    * @return DateOfBirthResponse
+   * @throws Exception Exception
    */
   public DateOfBirthResponse create(String dateOfBirth) throws Exception {
     return this.create(dateOfBirth, null, null, null);
@@ -41,9 +42,10 @@ public class DateOfBirthManager {
   /**
    * Create a new DateOfBirth string to be aliased for a specific static vault
    *
-   * @param dateOfBirth
-   * @param tags
+   * @param dateOfBirth Date of Birth
+   * @param tags Tags
    * @return DateOfBirthResponse
+   * @throws Exception Exception
    */
   public DateOfBirthResponse create(String dateOfBirth, List<String> tags) throws Exception {
     return this.create(dateOfBirth, null, null, tags);
@@ -52,10 +54,11 @@ public class DateOfBirthManager {
   /**
    * Create a new DateOfBirth string to be aliased for a specific static vault
    *
-   * @param dateOfBirth
-   * @param year
-   * @param month
+   * @param dateOfBirth Date of Birth
+   * @param year Year
+   * @param month Month
    * @return DateOfBirthResponse
+   * @throws Exception Exception
    */
   public DateOfBirthResponse create(String dateOfBirth, Integer year, Integer month) throws Exception {
     return this.create(dateOfBirth, year, month, null);
@@ -64,11 +67,12 @@ public class DateOfBirthManager {
   /**
    * Create a new DateOfBirth string to be aliased for a specific static vault
    *
-   * @param dateOfBirth
-   * @param year
-   * @param month
-   * @param tags
+   * @param dateOfBirth Date of Birth
+   * @param year Year
+   * @param month Month
+   * @param tags Tags
    * @return DateOfBirthResponse
+   * @throws Exception Exception
    */
   public DateOfBirthResponse create(String dateOfBirth, Integer year, Integer month, List<String> tags) throws Exception {
     AESDTO cipher = this.vault.encrypt(dateOfBirth);
@@ -96,8 +100,9 @@ public class DateOfBirthManager {
   /**
    * Retrieve the DateOfBirth string alias from a static vault
    *
-   * @param id
+   * @param id ID
    * @return DateOfBirthResponse
+   * @throws Exception Exception
    */
   public DateOfBirthResponse retrieve(String id) throws Exception {
     HttpResponse<DateOfBirthResponse> response = Unirest
@@ -116,8 +121,9 @@ public class DateOfBirthManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param dateOfBirth
+   * @param dateOfBirth Date of Birth
    * @return List of DateOfBirthResponse
+   * @throws Exception Exception
    */
   public DateOfBirthResponse[] retrieveFromRealData(String dateOfBirth) throws Exception {
     return this.retrieveFromRealData(dateOfBirth, null);
@@ -128,9 +134,10 @@ public class DateOfBirthManager {
    * Real value must be an exact match and will also be case sensitive.
    * Returns an array of matching values.Array will be sorted by date created.
    *
-   * @param dateOfBirth
-   * @param tags
+   * @param dateOfBirth Date of Birth
+   * @param tags Tags
    * @return DateOfBirthResponse[]
+   * @throws Exception Exception
    */
   public DateOfBirthResponse[] retrieveFromRealData(String dateOfBirth, List<String> tags) throws Exception {
     String hash = this.vault.hash(dateOfBirth);
@@ -164,8 +171,9 @@ public class DateOfBirthManager {
   /**
    * Delete the DateOfBirth alias from static vault
    *
-   * @param id
+   * @param id ID
    * @return boolean
+   * @throws Exception Exception
    */
   public boolean delete(String id) throws Exception {
     HttpResponse<String> response = Unirest
