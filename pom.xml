@@ -119,6 +119,7 @@
         <configuration>
           <environmentVariables>
             <API_URL>http://0.0.0.0:8080</API_URL>
+            <API_KEY>api_key_for_integration_test</API_KEY>
           </environmentVariables>
         </configuration>
       </plugin>
