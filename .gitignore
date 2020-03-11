@@ -19,5 +19,7 @@ src/main/java/example/Example.java
 .classpath
 .project
 .settings
+.vscode
+.factorypath
 *.DS_Store
 
