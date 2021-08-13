@@ -17,7 +17,7 @@
 
     <jackson.version>2.10.0.pr1</jackson.version>
     <unirest.version>1.4.9</unirest.version>
-    <bouncycastle.version>1.61</bouncycastle.version>
+    <bouncycastle.version>1.67</bouncycastle.version>
     <junit.version>4.12</junit.version>
     <wiremock.version>2.23.2</wiremock.version>
     <slf4j.simple.version>1.6.4</slf4j.simple.version>
